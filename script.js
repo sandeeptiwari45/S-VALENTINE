@@ -46,40 +46,25 @@ function setupProposal() {
     }
 
     if (yesBtn) {
-        // Function to handle "Yes" interaction
-        const handleYesClick = (e) => {
-            // Prevent double firing if both events exist
-            if (e.type === 'touchstart') e.preventDefault();
-
-            // Try to play music on first interaction
+        // Simple and robust click handler for audio
+        yesBtn.addEventListener('click', () => {
+            // 1. Try to play music immediately on user click
             const audio = document.getElementById("bg-music");
             if (audio) {
-                audio.volume = 1.0; // Ensure max volume
-                const playPromise = audio.play();
+                audio.volume = 1.0;
+                // Play and catch errors silently (no alerts)
+                audio.play().catch(e => console.log("Audio play error (likely browser blocked):", e));
 
-                if (playPromise !== undefined) {
-                    playPromise.then(_ => {
-                        console.log("Audio playing started!");
-                        const musicBtn = document.getElementById("music-btn");
-                        if (musicBtn) musicBtn.innerText = "⏸ Pause Music";
-                    }).catch(error => {
-                        console.log("Audio autoplay failed:", error);
-                        // Show a small hint or just rely on the manual button later
-                        alert("Tap the 'Play Music' button if sound doesn't start! 🎵");
-                    });
-                }
+                const musicBtn = document.getElementById("music-btn");
+                if (musicBtn) musicBtn.innerText = "⏸ Pause Music";
             }
 
-            // Trigger Confetti
+            // 2. Trigger Confetti
             triggerConfetti();
 
-            // Go to next step
+            // 3. Go to next step
             nextStep(2);
-        };
-
-        yesBtn.addEventListener('click', handleYesClick);
-        // Add touchstart for better mobile responsiveness
-        yesBtn.addEventListener('touchstart', handleYesClick, { passive: false });
+        });
     }
 }
 

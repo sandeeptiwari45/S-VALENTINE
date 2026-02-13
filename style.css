@@ -525,12 +525,16 @@ section:hover {
     background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start;
+    /* Start from top relative to padding */
+    padding-top: 15vh;
+    /* Push down to sweet spot (slightly above center) */
     z-index: 3000;
     /* Higher than everything else */
     text-align: center;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
     box-sizing: border-box;
 }
 

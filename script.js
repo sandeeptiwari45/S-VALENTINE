@@ -29,6 +29,31 @@ const config = {
 
 /* 1. Proposal Wizard Logic */
 function setupProposal() {
+    // Start Button Logic
+    const startBtn = document.getElementById('start-btn');
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            const audio = document.getElementById("bg-music");
+            if (audio) {
+                audio.volume = 1.0;
+                audio.play().catch(e => console.log("Audio play error:", e));
+            }
+
+            // Hide Start Overlay
+            document.getElementById('start-overlay').classList.add('hidden');
+
+            // Show Proposal
+            document.getElementById('proposal-container').classList.remove('hidden');
+
+            // Show Music Button
+            const musicBtn = document.getElementById("music-btn");
+            if (musicBtn) {
+                musicBtn.classList.remove('hidden');
+                musicBtn.innerText = "⏸ Pause Music";
+            }
+        });
+    }
+
     // Main No Button
     const noBtn = document.getElementById('no-btn');
     const yesBtn = document.getElementById('yes-btn');

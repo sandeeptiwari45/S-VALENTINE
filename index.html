@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day Shanti ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container"></div>
+
+    <!-- Background Music Control -->
+    <button id="music-btn" class="music-btn">🎵 Play Music</button>
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- PROPOSAL WIZARD FLOW (initially visible) -->
+    <div id="proposal-container" class="proposal-container">
+
+        <!-- FLOWER / GIF DECORATION -->
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3hneG1wZ3J5eWx5a3Z5a3Z5a3Z5a3Z5a3Z5a3Z5a3Z5aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif"
+                alt="Cute Heart GIF" class="cute-gif">
+        </div>
+
+        <!-- STEP 1: Will you be my Valentine? -->
+        <div id="step-1" class="step active">
+            <h1>Will you be my Valentine? 🌹</h1>
+            <div class="btn-group">
+                <button id="yes-btn" class="btn-yes">YES! ❤️</button>
+                <button id="no-btn" class="btn-no">No 😢</button>
+            </div>
+        </div>
+
+        <!-- STEP 2: Love Message -->
+        <div id="step-2" class="step hidden">
+            <h1>I Knew You Would Say Yes! 😍</h1>
+            <p>You are the love of my life!</p>
+            <button class="btn-next" onclick="nextStep(3)">Cutie, Click Next ❤️</button>
+        </div>
+
+        <!-- STEP 3: Cute Question -->
+        <div id="step-3" class="step hidden">
+            <h1>Do you love me as much as I love you? 🤔</h1>
+            <div class="btn-group">
+                <button class="btn-yes" onclick="nextStep(4)">YESSS! 🥰</button>
+                <button class="btn-yes" onclick="nextStep(4)">More than that! 😘</button>
+            </div>
+        </div>
+
+        <!-- STEP 4: Who is cuter? -->
+        <div id="step-4" class="step hidden">
+            <h1>Who is the cuter one? 🐣</h1>
+            <div class="btn-group">
+                <button class="btn-yes" onclick="nextStep(5)">Me (Shanti) 🤭</button>
+                <button class="btn-no" id="funny-no-btn">Sandeep 😒</button>
+            </div>
+        </div>
+
+        <!-- STEP 5: Date Night -->
+        <div id="step-5" class="step hidden">
+            <h1>What should we do on Valentine's? 🌹</h1>
+            <div class="btn-group">
+                <button class="btn-yes" onclick="nextStep(6)">Long Drive 🚗</button>
+                <button class="btn-yes" onclick="nextStep(6)">Candle Light Dinner 🕯️</button>
+                <button class="btn-yes" onclick="nextStep(6)">Cuddle & Watch Movies 🍿</button>
+            </div>
+        </div>
+
+        <!-- STEP 6: Letter -->
+        <div id="step-6" class="step hidden">
+            <div class="letter-content">
+                <h2>My Dearest Shanti, 💌</h2>
+                <p>
+                    From the moment I met you, my life changed forever.
+                    You brought so much joy, laughter, and love into my world.
+                </p>
+                <p>
+                    I promise to cherish you, respect you, and love you
+                    until the end of time.
+                </p>
+                <p>You are my everything. ❤️</p>
+            </div>
+            <button class="btn-next" onclick="finishProposal()">See Our Memories 📸</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (Initially Hidden) -->
+    <div id="main-content" class="hidden">
+
+        <!-- 1. Hero Section -->
+        <header class="hero">
+            <h1 class="animate-pop">Happy Valentine’s Day Shanti ❤️</h1>
+            <h2 class="animate-fade">3 Beautiful Years Together</h2>
+            <p class="animate-fade-delay">Every moment with you is my favorite memory.</p>
+        </header>
+
+        <!-- 2. Special Message -->
+        <section class="message-section">
+            <div class="card">
+                <div id="typewriter" class="typewriter-text"></div>
+                <p class="signature">— Yours, Sandeep</p>
+            </div>
+        </section>
+
+        <!-- 3. Photo Gallery -->
+        <section class="gallery-section">
+            <h2>Our Beautiful Memories 📸</h2>
+            <div class="gallery-grid">
+                <!-- Images will be injected via JS -->
+            </div>
+            <p class="hint">(Tap photos to zoom)</p>
+        </section>
+
+        <!-- 4. Love Timer -->
+        <section class="timer-section">
+            <h2>How Long We've Been In Love ⏳</h2>
+            <div class="love-stats">
+                <div class="stat-item">
+                    <span id="total-years">0</span>
+                    <p>Years</p>
+                </div>
+                <div class="stat-item">
+                    <span id="total-months">0</span>
+                    <p>Months</p>
+                </div>
+                <div class="stat-item">
+                    <span id="total-days">0</span>
+                    <p>Days</p>
+                </div>
+            </div>
+            <div class="timer-mini">
+                <span id="hours">00</span> Hours : <span id="minutes">00</span> Mins : <span id="seconds">00</span> Secs
+            </div>
+            <p class="memories-text">Countless Memories and counting... ❤️</p>
+        </section>
+
+        <!-- 5. Surprise Section -->
+        <section class="surprise-section">
+            <button id="surprise-btn" class="surprise-btn">Tap For A Surprise ❤️</button>
+        </section>
+
+        <!-- Hidden Surprise Overlay -->
+        <div id="surprise-overlay" class="surprise-overlay hidden">
+            <div class="surprise-content">
+                <h1 class="big-love">For My Forever Valentine ❤️</h1>
+
+                <div class="letter-paper">
+                    <p>My Dearest Love,</p>
+                    <p>Every day with you feels like a dream come true. You are my happiness, my laughter, and my
+                        greatest
+                        adventure.</p>
+                    <p>No matter where life takes us, I promise to always hold your hand and walk by your side.</p>
+                    <p>I Love You More Than Words Can Say!</p>
+                    <p class="signature">— Forever Yours, Sandeep</p>
+                </div>
+
+                <div class="surprise-images">
+                    <img src="love1.jpeg" alt="Love 1" class="s-img">
+                    <img src="love2.jpeg" alt="Love 2" class="s-img">
+                    <img src="love3.jpeg" alt="Love 3" class="s-img">
+                </div>
+
+                <button id="close-surprise">Close X</button>
+            </div>
+            <canvas id="confetti-canvas"></canvas>
+        </div>
+
+    </div>
+
+    <!-- Lightbox for Image Zoom -->
+    <div id="lightbox" class="lightbox hidden" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Zoomed Photo">
+    </div>
+
+    <!-- External Script for Confetti (Optional, or included in main js) -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

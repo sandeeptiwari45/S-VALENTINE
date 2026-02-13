@@ -441,18 +441,34 @@ section:hover {
     }
 }
 
-/* Music Button */
+/* Music Button - Top Right & Small */
 .music-btn {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.8);
-    border: none;
-    padding: 10px 15px;
+    top: 15px;
+    right: 15px;
+    bottom: auto;
+    /* Remove bottom positioning */
+    z-index: 4000;
+    /* Ensure it's above everything including proposal */
+    background: rgba(255, 255, 255, 0.7);
+    /* More transparent */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 64, 129, 0.3);
+    color: #e91e63;
+    padding: 6px 12px;
+    /* Smaller padding */
     border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    font-size: 0.8rem;
+    /* Smaller text */
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    background: white;
+    transform: scale(1.05);
 }
 
 /* Mobile Adjustments */

@@ -458,7 +458,51 @@ section:hover {
 /* Mobile Adjustments */
 @media (max-width: 600px) {
     h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        /* Slightly smaller */
+    }
+
+    /* Compact Surprise Popup for Mobile */
+    .surprise-content {
+        padding: 10px;
+        max-width: 95%;
+        max-height: 85vh;
+        /* Leave room for close button */
+    }
+
+    .big-love {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .letter-paper {
+        padding: 15px;
+        font-size: 1rem;
+        /* Much smaller text to fit */
+        line-height: 1.4;
+        margin-bottom: 10px;
+    }
+
+    .letter-paper p {
+        margin-bottom: 8px;
+    }
+
+    .surprise-images {
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .s-img {
+        width: 70px;
+        /* Smaller images */
+        height: 70px;
+        border-width: 3px;
+    }
+
+    #close-surprise {
+        margin-top: 10px;
+        padding: 8px 20px;
+        font-size: 1rem;
     }
 
     .stat-item span {

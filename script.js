@@ -46,13 +46,28 @@ function setupProposal() {
     }
 
     if (yesBtn) {
-        yesBtn.addEventListener('click', () => {
+        // Function to handle "Yes" interaction
+        const handleYesClick = (e) => {
+            // Prevent double firing if both events exist
+            if (e.type === 'touchstart') e.preventDefault();
+
             // Try to play music on first interaction
             const audio = document.getElementById("bg-music");
             if (audio) {
-                audio.play().catch(e => console.log("Autoplay prevented"));
-                const musicBtn = document.getElementById("music-btn");
-                if (musicBtn) musicBtn.innerText = "⏸ Pause Music";
+                audio.volume = 1.0; // Ensure max volume
+                const playPromise = audio.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {
+                        console.log("Audio playing started!");
+                        const musicBtn = document.getElementById("music-btn");
+                        if (musicBtn) musicBtn.innerText = "⏸ Pause Music";
+                    }).catch(error => {
+                        console.log("Audio autoplay failed:", error);
+                        // Show a small hint or just rely on the manual button later
+                        alert("Tap the 'Play Music' button if sound doesn't start! 🎵");
+                    });
+                }
             }
 
             // Trigger Confetti
@@ -60,7 +75,11 @@ function setupProposal() {
 
             // Go to next step
             nextStep(2);
-        });
+        };
+
+        yesBtn.addEventListener('click', handleYesClick);
+        // Add touchstart for better mobile responsiveness
+        yesBtn.addEventListener('touchstart', handleYesClick, { passive: false });
     }
 }
 

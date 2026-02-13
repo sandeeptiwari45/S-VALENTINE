@@ -15,25 +15,25 @@
     <!-- Floating Hearts Background -->
     <div class="hearts-container"></div>
 
-    <!-- Background Music Control -->
+    <!-- Background Music Control (Initially Hidden) -->
     <button id="music-btn" class="music-btn hidden">🎵 Play Music</button>
+
+    <!-- Audio Source -->
     <audio id="bg-music" loop preload="auto">
-        <!-- English Romantic Song (Perfect - Instrumental Cover or similar accessible link) -->
+        <!-- English Romantic Song (Instrumental or similar) -->
         <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
         <source src="music.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
-    <!-- Background Music Control -->
-    <button id="music-btn" class="music-btn">🎵 Play Music</button>
-    <audio id="bg-music" loop preload="auto">
-        <source src="music.mp3" type="audio/mp3">
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+    <!-- START OVERLAY (First Screen) -->
+    <div id="start-overlay" class="start-overlay">
+        <h1 class="animate-pop">For My Special One ❤️</h1>
+        <button id="start-btn" class="start-btn">Tap to Start 🎵</button>
+    </div>
 
-    <!-- PROPOSAL WIZARD FLOW (initially visible) -->
-    <div id="proposal-container" class="proposal-container">
+    <!-- PROPOSAL WIZARD FLOW (Hidden initially) -->
+    <div id="proposal-container" class="proposal-container hidden">
 
         <!-- FLOWER / GIF DECORATION -->
         <div class="gif-container">

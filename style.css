@@ -483,19 +483,22 @@ section:hover {
     .proposal-container {
         padding-top: 20px !important;
         /* Start much higher on mobile */
-        justify-content: center;
-        /* Center vertically on mobile */
+        justify-content: flex-start !important;
+        /* Allow scrolling from top */
+        padding-bottom: 120px;
+        /* Extra space at bottom for scrolling */
     }
 
     .step {
         padding: 15px;
         width: 90%;
-        max-height: 85vh;
-        /* Prevent overflowing screen */
-        overflow-y: auto;
-        /* Scroll if content is too big */
+        max-height: none;
+        /* remove max-height constraint to allow full scroll */
+        overflow-y: visible;
+        /* Let the container scroll instead */
         margin-bottom: 50px;
-        /* Space for bottom interaction if needed */
+        padding-bottom: 40px;
+        /* Extra padding inside the card too */
     }
 
     .cute-gif {

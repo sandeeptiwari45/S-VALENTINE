@@ -720,3 +720,182 @@ section:hover {
         padding: 10px 20px;
     }
 }
+
+/* Music Wave Section */
+.music-wave-section {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    margin: 40px auto;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.music-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.music-cover {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 25px rgba(255, 64, 129, 0.5);
+    animation: rotateCover 10s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-cover.playing {
+    animation-play-state: running;
+}
+
+@keyframes rotateCover {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.music-info h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0;
+    font-family: 'Great Vibes', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.music-info p {
+    font-size: 0.9rem;
+    color: #ffebee;
+    margin: 5px 0 0;
+    font-weight: 500;
+}
+
+/* Wave Visualizer */
+.wave-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 40px;
+    gap: 4px;
+    margin-top: 15px;
+}
+
+.wave-bar {
+    width: 5px;
+    background: #fff;
+    border-radius: 5px;
+    height: 5px;
+    animation: wave 1s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.wave-container.playing .wave-bar {
+    animation-play-state: running;
+}
+
+.wave-container:not(.playing) .wave-bar {
+    animation-play-state: paused;
+    animation-play-state: paused;
+    height: 5px !important;
+    transition: height 0.3s ease;
+}
+
+@keyframes wave {
+
+    0%,
+    100% {
+        height: 5px;
+    }
+
+    50% {
+        height: 35px;
+    }
+}
+
+/* Stagger animations for wave look */
+.wave-bar:nth-child(1) {
+    animation-duration: 1.2s;
+    animation-delay: 0s;
+}
+
+.wave-bar:nth-child(2) {
+    animation-duration: 1.0s;
+    animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(3) {
+    animation-duration: 1.4s;
+    animation-delay: 0.2s;
+}
+
+.wave-bar:nth-child(4) {
+    animation-duration: 0.8s;
+    animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(5) {
+    animation-duration: 1.1s;
+    animation-delay: 0.3s;
+}
+
+.wave-bar:nth-child(6) {
+    animation-duration: 1.3s;
+    animation-delay: 0.2s;
+}
+
+.wave-bar:nth-child(7) {
+    animation-duration: 1.2s;
+    animation-delay: 0.4s;
+}
+
+.wave-bar:nth-child(8) {
+    animation-duration: 0.9s;
+    animation-delay: 0.1s;
+}
+
+.wave-bar:nth-child(9) {
+    animation-duration: 1.3s;
+    animation-delay: 0.3s;
+}
+
+.wave-bar:nth-child(10) {
+    animation-duration: 1.0s;
+    animation-delay: 0.2s;
+}
+
+/* Wave Play Button */
+.wave-play-btn {
+    background: #ff4081;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 64, 129, 0.4);
+    transition: transform 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wave-play-btn:hover {
+    background: #f50057;
+    transform: scale(1.05);
+}

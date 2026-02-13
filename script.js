@@ -36,7 +36,8 @@ function setupProposal() {
             const audio = document.getElementById("bg-music");
             if (audio) {
                 audio.volume = 1.0;
-                audio.play().catch(e => console.log("Audio play error:", e));
+                // audio.play().catch(e => console.log("Audio play error:", e));
+                // updateMusicVisualizer(true); // Don't play on start
             }
 
             // Hide Start Overlay
@@ -45,12 +46,12 @@ function setupProposal() {
             // Show Proposal
             document.getElementById('proposal-container').classList.remove('hidden');
 
-            // Show Music Button
-            const musicBtn = document.getElementById("music-btn");
-            if (musicBtn) {
-                musicBtn.classList.remove('hidden');
-                musicBtn.innerText = "⏸ Pause Music";
-            }
+            // Show Music Button (Removed global button)
+            // const musicBtn = document.getElementById("music-btn");
+            // if (musicBtn) {
+            //     musicBtn.classList.remove('hidden');
+            //     musicBtn.innerText = "⏸ Pause Music";
+            // }
         });
     }
 
@@ -76,12 +77,9 @@ function setupProposal() {
             // 1. Try to play music immediately on user click
             const audio = document.getElementById("bg-music");
             if (audio) {
-                audio.volume = 1.0;
                 // Play and catch errors silently (no alerts)
-                audio.play().catch(e => console.log("Audio play error (likely browser blocked):", e));
-
-                const musicBtn = document.getElementById("music-btn");
-                if (musicBtn) musicBtn.innerText = "⏸ Pause Music";
+                // audio.play().catch(e => console.log("Audio play error (likely browser blocked):", e));
+                // updateMusicVisualizer(true); // Don't play on yes
             }
 
             // 2. Trigger Confetti
@@ -133,6 +131,8 @@ function finishProposal() {
 
         // Show main content
         mainContent.classList.remove('hidden');
+        const musicWave = document.getElementById('music-wave-section');
+        if (musicWave) musicWave.classList.remove('hidden');
 
         // Refresh Gallery and Timer
         loadGallery();
@@ -271,22 +271,41 @@ window.closeLightbox = closeLightbox; // Expose to global scope for HTML onclick
 window.openLightbox = openLightbox;
 
 
-/* 5. Background Music */
-const musicBtn = document.getElementById("music-btn");
+/* 5. Background Music Logic (Manual Control Only) */
+const wavePlayBtn = document.getElementById("wave-play-btn"); // New button
 const audio = document.getElementById("bg-music");
 let isPlaying = false;
 
-if (musicBtn && audio) {
-    musicBtn.addEventListener("click", () => {
+function updateMusicVisualizer(playing) {
+    const waveContainer = document.querySelector('.wave-container');
+    const musicCover = document.querySelector('.music-cover');
+    isPlaying = playing;
+
+    if (playing) {
+        if (waveContainer) waveContainer.classList.add('playing');
+        if (musicCover) musicCover.classList.add('playing');
+        if (wavePlayBtn) wavePlayBtn.innerText = "⏸ Pause";
+    } else {
+        if (waveContainer) waveContainer.classList.remove('playing');
+        if (musicCover) musicCover.classList.remove('playing');
+        if (wavePlayBtn) wavePlayBtn.innerText = "▶ Play Song";
+    }
+}
+
+if (wavePlayBtn && audio) {
+    wavePlayBtn.addEventListener("click", () => {
         if (isPlaying) {
             audio.pause();
-            musicBtn.innerText = "🎵 Play Music";
+            updateMusicVisualizer(false);
         } else {
             audio.play().catch(e => alert("Please interact with the document first or allow autoplay!"));
-            musicBtn.innerText = "⏸ Pause Music";
+            updateMusicVisualizer(true);
         }
-        isPlaying = !isPlaying;
     });
+
+    // Sync if audio ends or pauses via system
+    audio.addEventListener('pause', () => updateMusicVisualizer(false));
+    audio.addEventListener('play', () => updateMusicVisualizer(true));
 }
 
 

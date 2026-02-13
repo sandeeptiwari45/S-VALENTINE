@@ -29,8 +29,14 @@
 
     <!-- START OVERLAY (First Screen) -->
     <div id="start-overlay" class="start-overlay">
-        <h1 class="animate-pop">For My Special One ❤️</h1>
-        <button id="start-btn" class="start-btn">Tap to Start 🎵</button>
+        <h1 class="animate-pop">For My Special One <svg class="icon-heart" viewBox="0 0 24 24" fill="#ff4081">
+                <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+            </svg></h1>
+        <button id="start-btn" class="start-btn">Tap to Start <svg class="icon-music" viewBox="0 0 24 24"
+                fill="currentColor">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+            </svg></button>
     </div>
 
     <!-- PROPOSAL WIZARD FLOW (Hidden initially) -->
@@ -58,9 +64,11 @@
             <button class="btn-next" onclick="nextStep(3)">Cutie, Click Next ❤️</button>
         </div>
 
-        <!-- STEP 3: Cute Question -->
         <div id="step-3" class="step hidden">
-            <h1>Do you love me as much as I love you? 🤔</h1>
+            <h1>Do you love me as much as I love you? <svg class="icon-question" viewBox="0 0 24 24" fill="#e91e63">
+                    <path
+                        d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8 8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z" />
+                </svg></h1>
             <div class="btn-group">
                 <button class="btn-yes" onclick="nextStep(4)">YESSS! 🥰</button>
                 <button class="btn-yes" onclick="nextStep(4)">More than that! 😘</button>
@@ -69,7 +77,12 @@
 
         <!-- STEP 4: Who is cuter? -->
         <div id="step-4" class="step hidden">
-            <h1>Who is the cuter one? 🐣</h1>
+            <h1>Who is the cuter one? <svg class="icon-face" viewBox="0 0 24 24" fill="#ffc107">
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="9" cy="9" r="1.5" fill="#fff" />
+                    <circle cx="15" cy="9" r="1.5" fill="#fff" />
+                    <path d="M15.5 14h-7c-.55 0-1 .45-1 1s.45 1 1 1h7c.55 0 1-.45 1-1s-.45-1-1-1z" fill="#fff" />
+                </svg></h1>
             <div class="btn-group">
                 <button class="btn-yes" onclick="nextStep(5)">Me (Shanti) 🤭</button>
                 <button class="btn-no" id="funny-no-btn">Sandeep 😒</button>
@@ -78,18 +91,36 @@
 
         <!-- STEP 5: Date Night -->
         <div id="step-5" class="step hidden">
-            <h1>What should we do on Valentine's? 🌹</h1>
+            <h1>What should we do on Valentine's? <svg class="icon-rose" viewBox="0 0 24 24" fill="#d32f2f">
+                    <path
+                        d="M12 2C9 2 7 3.5 7 5.5c0 1.5 1 2.5 2.5 3 1 .3 2.5 0 2.5-1.5 0-1-1-1.5-1.5-1.5H10c.5-1 1.5-1.5 2-1.5s1.5.5 2 1.5h-.5c-.5 0-1.5.5-1.5 1.5 0 1.5 1.5 1.8 2.5 1.5 1.5-.5 2.5-1.5 2.5-3C17 3.5 15 2 12 2zm-1 9c-2.3 0-4.6.5-6.7 1.4l.6 1.9C6.8 13.5 8.9 13 11 13c1.9 0 3.7.4 5.2 1.1l.8-1.8C15.3 11.5 13.2 11 11 11zm-5.8 4.2c2.1-1 4.5-1.4 6.8-1.2l.2-2c-2.6-.2-5.3.3-7.7 1.4l.7 1.8zm13.1 1.2c-1.4-1.3-3.2-2.1-5.1-2.4l-.3 2c1.6.2 3.1.9 4.3 2l1.1-1.6z" />
+                </svg></h1>
             <div class="btn-group">
-                <button class="btn-yes" onclick="nextStep(6)">Long Drive 🚗</button>
-                <button class="btn-yes" onclick="nextStep(6)">Candle Light Dinner 🕯️</button>
-                <button class="btn-yes" onclick="nextStep(6)">Cuddle & Watch Movies 🍿</button>
+                <button class="btn-yes" onclick="nextStep(6)">Long Drive <svg class="icon-car" viewBox="0 0 24 24"
+                        fill="white" width="16" height="16">
+                        <path
+                            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+                    </svg></button>
+                <button class="btn-yes" onclick="nextStep(6)">Candle Light <svg class="icon-candle" viewBox="0 0 24 24"
+                        fill="white" width="16" height="16">
+                        <path
+                            d="M12 2c-.5 2-2 3.5-2 5s2 1.5 2 2.5 2-1 2-2.5-1.5-3-2-5zm-2.1 7h4.2c1.1 0 2 .9 2 2v11H7.9V11c0-1.1.9-2 2-2z" />
+                    </svg></button>
+                <button class="btn-yes" onclick="nextStep(6)">Movies <svg class="icon-movie" viewBox="0 0 24 24"
+                        fill="white" width="16" height="16">
+                        <path
+                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" />
+                    </svg></button>
             </div>
         </div>
 
         <!-- STEP 6: Letter -->
         <div id="step-6" class="step hidden">
             <div class="letter-content">
-                <h2>My Dearest Shanti, 💌</h2>
+                <h2>My Dearest Shanti <svg class="icon-mail" viewBox="0 0 24 24" fill="#ff4081">
+                        <path
+                            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                    </svg></h2>
                 <p>
                     From the moment I met you, my life changed forever.
                     You brought so much joy, laughter, and love into my world.
@@ -109,7 +140,11 @@
 
         <!-- 1. Hero Section -->
         <header class="hero">
-            <h1 class="animate-pop">Happy Valentine’s Day Shanti ❤️</h1>
+            <h1 class="animate-pop">Happy Valentine’s Day Shanti <svg class="icon-heart" viewBox="0 0 24 24"
+                    fill="#ff4081">
+                    <path
+                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg></h1>
             <h2 class="animate-fade">3 Beautiful Years Together</h2>
             <p class="animate-fade-delay">Every moment with you is my favorite memory.</p>
         </header>
@@ -124,7 +159,11 @@
 
         <!-- 3. Photo Gallery -->
         <section class="gallery-section">
-            <h2>Our Beautiful Memories 📸</h2>
+            <h2>Our Beautiful Memories <svg class="icon-camera" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="3.2" />
+                    <path
+                        d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+                </svg></h2>
             <div class="gallery-grid">
                 <!-- Images will be injected via JS -->
             </div>
@@ -133,7 +172,10 @@
 
         <!-- 4. Love Timer -->
         <section class="timer-section">
-            <h2>How Long We've Been In Love ⏳</h2>
+            <h2>How Long We've Been In Love <svg class="icon-time" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8 8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                </svg></h2>
             <div class="love-stats">
                 <div class="stat-item">
                     <span id="total-years">0</span>
@@ -191,7 +233,11 @@
                 <img src="love4.jpeg" alt="Tera Ban Jaunga Cover" class="music-cover">
                 <div class="music-info">
                     <h2>Tera Ban Jaunga</h2>
-                    <p>Unplugged Cover (For You ❤️)</p>
+                    <p>Unplugged Cover (For You <svg class="icon-heart-small" viewBox="0 0 24 24" fill="#ff4081"
+                            width="12" height="12">
+                            <path
+                                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                        </svg>)</p>
                 </div>
                 <div class="wave-container">
                     <div class="wave-bar"></div>

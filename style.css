@@ -899,3 +899,98 @@ section:hover {
     background: #f50057;
     transform: scale(1.05);
 }
+
+/* SVG Icons */
+svg {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.icon-heart {
+    width: 0.8em;
+    height: 0.8em;
+    fill: #ff4081;
+    animation: heartbeat 1.5s infinite;
+}
+
+.icon-music {
+    width: 1.2em;
+    height: 1.2em;
+    fill: currentColor;
+    margin-left: 5px;
+}
+
+.icon-camera,
+.icon-time {
+    width: 1em;
+    height: 1em;
+    fill: #e91e63;
+    margin-left: 8px;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.3);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.15);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+}
+
+.icon-question {
+    width: 1.2em;
+    height: 1.2em;
+    fill: #e91e63;
+    vertical-align: bottom;
+}
+
+.icon-face {
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: bottom;
+}
+
+.icon-rose {
+    width: 1.2em;
+    height: 1.2em;
+    fill: #d32f2f;
+    margin-left: 5px;
+}
+
+.icon-car,
+.icon-candle,
+.icon-movie {
+    width: 1.1em;
+    height: 1.1em;
+    fill: white;
+    margin-left: 5px;
+    vertical-align: text-bottom;
+}
+
+.icon-mail {
+    width: 1.2em;
+    height: 1.2em;
+    fill: #ff4081;
+    vertical-align: middle;
+}
+
+.icon-heart-small {
+    width: 0.9em;
+    height: 0.9em;
+    fill: #ff4081;
+    vertical-align: baseline;
+    display: inline;
+}
